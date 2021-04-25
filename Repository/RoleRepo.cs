@@ -10,9 +10,9 @@ namespace Repository
     public class RoleRepo : IRepositoryBase<Roles>
     {
         public ContextDb _db { get; set; }
-        RoleRepo(ContextDb db)
+        public RoleRepo(ContextDb db)
         {
-            db = _db;
+            _db = db;
         }
         public void Create(Roles entity)
         {
@@ -33,6 +33,10 @@ namespace Repository
         public Roles FindById(int id)
         {
             return _db.Role.FirstOrDefault(d => d.RoleId == id);
+        }
+        public Roles FindByName(string name)
+        {
+            return _db.Role.FirstOrDefault(d => d.RoleName == name);
         }
 
         public void Update(Roles entity)

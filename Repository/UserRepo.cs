@@ -10,9 +10,9 @@ namespace Repository
     public class UserRepo : IRepositoryBase<Users>
     {
         public ContextDb _db { get; set; }
-        UserRepo(ContextDb db)
+        public UserRepo(ContextDb db)
         {
-            db = _db;
+            _db = db;
         }
         public void Create(Users entity)
         {
@@ -33,6 +33,17 @@ namespace Repository
         public Users FindById(int id)
         {
             return _db.User.FirstOrDefault(d => d.UserId == id);
+        }
+        public bool FindByName(string name)
+        {
+            if( _db.User.FirstOrDefault(d => d.UserName == name)!=null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Update(Users entity)
