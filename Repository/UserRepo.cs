@@ -34,24 +34,17 @@ namespace Repository
         {
             return _db.User.FirstOrDefault(d => d.UserId == id);
         }
-        public bool FindByName(string name)
+        public Users FindByName(string name)
         {
-            if( _db.User.FirstOrDefault(d => d.UserName == name)!=null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return _db.User.FirstOrDefault(d => d.UserName == name);
         }
 
         public void Update(Users entity)
         {
-            Users oldstd = _db.User.FirstOrDefault(d => d.UserId == entity.UserId);
-            oldstd.UserName = entity.UserName;
-            oldstd.Email = entity.Email;
-            oldstd.Password = entity.Password;
+            Users oldUser = _db.User.FirstOrDefault(d => d.UserId == entity.UserId);
+            oldUser.UserName = entity.UserName;
+            oldUser.Email = entity.Email;
+            oldUser.Password = entity.Password;
         }
     }
 }

@@ -16,8 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Models.csproj" />
-    <ProjectReference Include="..\Repository\Repository.csproj" />
-    <ProjectReference Include="..\UnitTestLaab1.Test\UnitTestLaab1.Test.csproj" />
   </ItemGroup>
 
 </Project>
